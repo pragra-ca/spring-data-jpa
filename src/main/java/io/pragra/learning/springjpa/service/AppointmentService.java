@@ -54,6 +54,7 @@ public class AppointmentService {
     }
 
     public List<Appointment> getAllForADoctor(String doctorName){
-        return repo.findAllByDoctorName(doctorName);
+        //return repo.findAllByDoctorName(doctorName);
+        return null;
     }
 }

@@ -36,5 +36,11 @@ public class AppointController {
         return this.service.createAppoint(appointment);
     }
 
+    @PutMapping("/appointment")
+    public Appointment updateAppointment(@RequestBody Appointment appointment) {
+        return this.service.createAppoint(appointment);
+    }
+
+
 
 }

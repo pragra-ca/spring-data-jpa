@@ -34,7 +34,6 @@ public class SpringjpaApplication {
                     .appointmentDate(Instant.now().plus(Duration.ofDays(2)))
                     .createDate(Instant.now())
                     .updateUpdate(Instant.now())
-                    .doctorName("Vivek")
                     .build();
             repo.save(appointment);
         };

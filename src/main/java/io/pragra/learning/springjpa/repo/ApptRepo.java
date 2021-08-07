@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ApptRepo extends JpaRepository<Appointment,Integer> {
-    List<Appointment> findAllByDoctorName(String name);
+
 }
 
-// POJA - DOMAIN
+// POJO - DOMAIN

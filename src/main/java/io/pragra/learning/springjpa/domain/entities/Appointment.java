@@ -27,10 +27,11 @@ public class Appointment {
     private String phoneNumber;
     private Instant appointmentDate;
     private StatusEnum status;
+
+    @ManyToOne(targetEntity = Doctor.class, cascade = CascadeType.DETACH)
+    private Doctor doctor;
     private Instant createDate ;
     private Instant updateUpdate;
-    private String doctorName;
-
     @Transient
     private double appointmentFee;
 }
