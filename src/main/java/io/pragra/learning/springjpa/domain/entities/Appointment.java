@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.Date;
 
 @Entity
 @Data
@@ -20,17 +19,16 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "FIRST_NAME", length = 50, nullable = false)
-    private String firstName;
-    @Column(name = "LAST_NAME", columnDefinition = "VARCHAR2(3000)")
-    private String lastName;
-    private String phoneNumber;
+
+    @OneToOne
+    @JoinColumn(name = "visiting_patient_id")
+    private Patient patient;
     private Instant appointmentDate;
     private StatusEnum status;
 
     @ManyToOne(targetEntity = Doctor.class, cascade = CascadeType.DETACH)
     private Doctor doctor;
-    private Instant createDate ;
+    private Instant createDate;
     private Instant updateUpdate;
     @Transient
     private double appointmentFee;

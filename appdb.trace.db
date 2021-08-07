@@ -172,3 +172,9 @@ INSERT INTO DOCTOR (1, 'ATIn', 'SINGH', '') [42001-200]
 2021-08-07 14:28:32 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DOCTOR[*]"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
 DOCTOR [42001-200]
+2021-08-07 14:46:14 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PAITENT" not found; SQL statement:
+INSERT INTO PAITENT(1, 'ATIN','SINGH','737387782') [42102-200]
+2021-08-07 14:46:27 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PAITENT" not found; SQL statement:
+INSERT INTO PAITENT VALUES(1, 'ATIN','SINGH','737387782') [42102-200]

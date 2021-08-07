@@ -11,27 +11,31 @@ import java.util.List;
 @Service
 public class AppointmentService {
 
-    private ApptRepo repo;
+    private final ApptRepo repo;
+    private final PatientService service;
 
-    public AppointmentService(ApptRepo repo) {
+    public AppointmentService(ApptRepo repo, PatientService service) {
         this.repo = repo;
+        this.service = service;
     }
 
     public Appointment createAppoint(Appointment appointment) {
-        if(appointment.getFirstName()==null) {
+        if (appointment.getPatient().getFirstName() == null) {
             throw new IllegalArgumentException("First Name can't be null");
         }
         appointment.setCreateDate(Instant.now());
         appointment.setUpdateUpdate(Instant.now());
-        if(appointment.getAppointmentDate().compareTo(Instant.now())==-1){
+        if (appointment.getAppointmentDate().compareTo(Instant.now()) == -1) {
             throw new IllegalArgumentException("Appoitment can't in past");
         }
+        appointment.setPatient(service.createPaiten(appointment.getPatient()));
+
         appointment.setStatus(StatusEnum.ORIGINAL);
         return repo.save(appointment);
     }
 
     public Appointment update(Appointment appointment) {
-        if(appointment.getFirstName()==null) {
+        if (appointment.getPatient().getFirstName() == null) {
             throw new IllegalArgumentException("First Name can't be null");
         }
         appointment.setUpdateUpdate(Instant.now());
