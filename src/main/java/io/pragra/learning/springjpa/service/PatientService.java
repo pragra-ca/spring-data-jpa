@@ -12,7 +12,7 @@ public class PatientService {
         this.repo = repo;
     }
 
-    public Patient createPaiten(Patient patient) {
+    public Patient createPatient(Patient patient) {
         return this.repo.save(patient);
     }
 }
